@@ -126,10 +126,5 @@ class flag
     {
       fHeight -= sin(random(radians(1), radians(179)))*2;
     }
-    
-    
-    
-    //fWidth += sin(random(radians(1), radians(179)));
-    //fHeight -= sin(random(radians(1), radians(179)));
   }
 }
