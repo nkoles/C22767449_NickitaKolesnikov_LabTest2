@@ -7,22 +7,29 @@ class flag
   float fHeight;
   
   //Flag Num of Lines, Triangles, and Circle Diameter
-  float numLines = 6;
-  float numTri = 4;
+  int numLines = 6;
+  int numTri = 4;
   float circDiam;
   
-  flag(float w, float h)
+  //Flag Shape Initialisation and Position Vector
+  PShape flagS;
+  PVector flagPos;
+  
+  flag(float w, float h, float x, float y)
   {
     fWidth = w;
     fHeight = h;
     circDiam = fWidth/10;
+    flagPos = new PVector(x, y);
   } 
   
   //Render and Update Methods
   void render()
   {
+    flagS = createShape();
+    flagS.beginShape();
     //Sets the Origin to the center of the Screen
-    translate(width/2, height/2);
+    translate(flagPos.x, flagPos.y);
     
     //Draw Flag Bars
     for(int i = 0; i < numLines; i++)
@@ -58,6 +65,9 @@ class flag
         strokeWeight(3);
         circle(centerTriW , centerTriH, circDiam);
         popMatrix();
+        flagS.endShape();
+        
+        //shape(flagS, flagPos.x, flagPos.y);
       }
     }
     
