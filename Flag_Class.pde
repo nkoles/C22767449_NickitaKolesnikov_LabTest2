@@ -9,7 +9,8 @@ class flag
   //Flag Num of Lines, Triangles, and Circle Diameter
   int numLines = 6;
   int numTri = 4;
-  float circDiam;
+  float circW;
+  float circH;
   
   //Flag Shape Initialisation and Position Vector
   PShape flagS;
@@ -19,7 +20,8 @@ class flag
   {
     fWidth = w;
     fHeight = h;
-    circDiam = fWidth/10;
+    circW = fWidth/10;
+    circH = fHeight/5;
     flagPos = new PVector(x, y);
   } 
   
@@ -57,13 +59,13 @@ class flag
         pushMatrix();
         translate(0, 0 + triHStep*i);
         
-        float centerTriW = (fWidth/2 - triWStep*i)/2 - circDiam/2;
-        float centerTriH = (fHeight - triHStep*i)/2 - circDiam/2;
+        float centerTriW = (fWidth/2 - triWStep*i)/2 - circW/2;
+        float centerTriH = (fHeight - triHStep*i)/2 - circH/2;
         
         noFill();
         stroke(170, 255, 255);
         strokeWeight(3);
-        circle(centerTriW , centerTriH, circDiam);
+        ellipse(centerTriW , centerTriH, circW, circH);
         popMatrix();
         flagS.endShape();
         
