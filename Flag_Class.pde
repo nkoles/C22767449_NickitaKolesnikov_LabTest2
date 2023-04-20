@@ -26,9 +26,27 @@ class flag
     //Draw Flag Bars
     for(int i = 0; i < numLines; i++)
     { 
+      noStroke();
       fill(255 - 255/numLines*i, 255, 255);
       rect(0, 0, fWidth, fHeight - fHeight/numLines *i);
     }
+    
+    //Draw Triangles and Circle in the middle
+    for(int i = 0; i < numTri; i++)
+    {
+      //Define the Step for the change of size of the Triangles for both the Width and Height
+      float triWStep = fWidth/20;
+      float triHStep = fHeight/20;
+      
+      noStroke();
+      fill(100 - 100/numTri*i, 255, 0 + 255/numTri*i*10);
+      triangle(0, 0 + triHStep*i, 0, fHeight - triHStep*i, fWidth/2 - triWStep*i, fHeight/2);
+    }
+    
+    //noFill();
+    //strokeWeight(2);
+    fill(170, 255, 255);
+    circle(0 , 0, circDiam);
   }
   
   void update()
