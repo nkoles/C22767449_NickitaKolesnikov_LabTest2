@@ -9,12 +9,13 @@ class flag
   //Flag Num of Lines, Triangles, and Circle Diameter
   float numLines = 6;
   float numTri = 4;
-  float circDiam = fWidth/10;
+  float circDiam;
   
   flag(float w, float h)
   {
     fWidth = w;
     fHeight = h;
+    circDiam = fWidth/10;
   } 
   
   //Render and Update Methods
@@ -41,12 +42,26 @@ class flag
       noStroke();
       fill(100 - 100/numTri*i, 255, 0 + 255/numTri*i*10);
       triangle(0, 0 + triHStep*i, 0, fHeight - triHStep*i, fWidth/2 - triWStep*i, fHeight/2);
+      
+      
+      //Creating Circle in the Middle of the Center Triangle
+      if(i == numTri-1)
+      {
+        pushMatrix();
+        translate(0, 0 + triHStep*i);
+        
+        float centerTriW = (fWidth/2 - triWStep*i)/2 - circDiam/2;
+        float centerTriH = (fHeight - triHStep*i)/2 - circDiam/2;
+        
+        noFill();
+        stroke(170, 255, 255);
+        strokeWeight(3);
+        circle(centerTriW , centerTriH, circDiam);
+        popMatrix();
+      }
     }
     
-    //noFill();
-    //strokeWeight(2);
-    fill(170, 255, 255);
-    circle(0 , 0, circDiam);
+
   }
   
   void update()
