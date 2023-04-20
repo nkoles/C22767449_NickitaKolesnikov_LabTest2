@@ -76,14 +76,60 @@ class flag
 
   }
   
+  boolean growW = true;
+  boolean growH = true;
+  
   void update()
   {
     //Update Flag Position
-    flagPos.x += 0.5;
+    flagPos.x ++;
     
-    if(flagPos.x >= 200)
+    if(flagPos.x >= width/2)
     {
-      flagPos.x = 0;
+      flagPos.x = 0 - width/2;
     }
+    
+    
+    //Update Scale
+    if(fWidth >= 400)
+    {
+      growW = false;
+    }
+    
+    if(fWidth <=200)
+    {
+      growW = true;
+    }
+    
+    if(growW == true)
+    {
+      fWidth += sin(random(radians(1), radians(179)))*2;
+    }else
+    {
+      fWidth -= sin(random(radians(1), radians(179)))*2;
+    }
+    
+    if(fHeight >= 200)
+    {
+      growH = false;
+    }
+    
+    if(fHeight <=50)
+    {
+      growH = true;
+    }
+    
+    if(growH == true)
+    {
+      fHeight += sin(random(radians(1), radians(179)))*2;
+    }else
+    {
+      fHeight -= sin(random(radians(1), radians(179)))*2;
+    }
+    
+    
+    
+    //fWidth += sin(random(radians(1), radians(179)));
+    //fHeight -= sin(random(radians(1), radians(179)));
   }
 }

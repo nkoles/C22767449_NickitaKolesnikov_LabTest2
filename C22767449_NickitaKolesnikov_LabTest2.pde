@@ -18,7 +18,7 @@ void initFlagArray()
 {
   for(int i = 0; i < numFlags ; i++)
   {  
-    flags.add(new flag(random(200, 500), random(100, 250), random(0, 200), random(0, 200) ));
+    flags.add(new flag(random(200, 400), random(50, 200), random(0, 100), random(0, 200) ));
   }
 }
 
