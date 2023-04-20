@@ -69,7 +69,7 @@ class flag
         popMatrix();
         flagS.endShape();
         
-        //shape(flagS, flagPos.x, flagPos.y);
+        shape(flagS, flagPos.x, flagPos.y);
       }
     }
     
@@ -78,5 +78,12 @@ class flag
   
   void update()
   {
+    //Update Flag Position
+    flagPos.x += 0.5;
+    
+    if(flagPos.x >= 200)
+    {
+      flagPos.x = 0;
+    }
   }
 }
